@@ -1,0 +1,85 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <!---使用Http-Server调试时需要启用浏览器开发者工具的Network-Disable chache，并持续打开开发者工具。否则浏览器缓存会导致更改不实时刷新。--->
+      <title>水方块的表情收集站 - 搜索</title>
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <style>
+         span{
+            font-weight:200;
+         }
+      </style>
+      <style>
+         .top{
+            position:absolute;
+            top:10%;
+            left:10%;
+            width:80%;
+            height:25%;
+            background:black;
+            opacity:0.5;
+            border-radius:15px;
+         }
+         .top_title{
+            position:relative;
+            color:white;
+            top:18%;
+            left:10%;
+            font-size:150%;
+         }
+         .top_input{
+            position:relative;
+            top:25%;
+            left:10%;
+            width:65%;
+            height:18%;
+            border-radius:5px;
+            border:none;
+         }
+         .top_go{
+            position:relative;
+            top:25.5%;
+            left:12%;
+            width:15%;
+            height:18%;
+            border-radius:5px;
+            border:none;
+         }
+         .top_tip{
+            position:relative;
+            color:white;
+            top:30%;
+            left:10%;
+            font-size:50%;
+         }
+         .result{
+            position:absolute;
+            top:40%;
+            left:10%;
+            width:80%;
+            height:55%;
+            background:black;
+            opacity:0.5;
+            border-radius:15px;
+            overflow:auto;
+         }
+         a {color:white;text-decoration:none;}
+         a:visited {color:white;text-decoration:none;}
+         a:hover {color:white;text-decoration:underline;}
+         a:active {color:white;}
+      </style>
+   </head>
+   <body style="background:url('resources/background.jpg');background-repeat:no-repeat;background-size:cover;">
+      <div class="top">
+         <span class="top_title">水方块的表情搜索站</span><br/>
+         <input class="top_input" type="text" name="meme_collect_search" id="search" onkeydown="if(window.event.keyCode==13){go()}"></input>
+         <!---浏览器貌似会根据input的name来显示自动填充，所以需要用一个比较特殊的Name--->
+         <!---使用Onkeydown和Keycode来“回车键搜索”--->
+         <button class="top_go" onclick="go()">搜索</button><br/>
+      </div>
+      <div class="result" id="result">
+         <br/>
+         <script src="js/search.js"></script>
+      </div>
+   </body>
+</html>

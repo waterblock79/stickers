@@ -7,16 +7,16 @@ req.open("GET",'resources/all.json',false);
 req.send();
 res=JSON.parse(req.responseText);
 
-function go()
+function search()
 {
-   var keyword=document.getElementById("search").value;
    var result=[];
    var resultvalue=[];
+   keyword = document.getElementById('79search').value;
    //KeyWord  : 搜索关键词
    //Result[] : 搜索结果(ID)
    //Result.Value[] : 搜索结果价值
    //==================================================
-   document.getElementById("result").innerHTML="<br/>";
+   document.getElementById("result").innerHTML = "<center style='margin-top:5px;'>搜索结果</center><HR>";
    for(i=0;i<res.length;i++)
    {
       res[i].name.split("").forEach(function(item)
@@ -40,8 +40,12 @@ function go()
    sortresult();
    for(var i=0;i<result.length;i++)
    {
-      document.getElementById("result").innerHTML+="<span style='position:relative;color:white;left:10%;font-size:125%'><a href='bq.html?id="+result[i]+"'>"+res[result[i]].name+"</a></span></br>";
-      document.getElementById("result").innerHTML+="<span style='position:relative;color:white;left:10%;'>表情Tag："+getTag(result[i])+"</span><br/>";
+      document.getElementById("result").innerHTML += "<span style='position:relative;color:white;left:10%;font-size:125%'><a href='bq.html?id=" + result[i] + "'>" + res[result[i]].name +"</a></span></br>";
+      document.getElementById("result").innerHTML+="<span style='position:relative;color:black;left:10%;'>表情Tag："+getTag(result[i])+"</span><br/>";
+   }
+   if(result.length==0)
+   {
+      document.getElementById("result").innerHTML += "<center style='color:rgb(0,122,204);'>没有找到任何表情:(</center>";
    }
    //========== 搜索到的操作 =========
    function gotit(i)
@@ -101,6 +105,9 @@ function go()
          return;
       }
    }
+   document.getElementById("result").innerHTML += "<br/>";
+   document.getElementById("result").style.display = "block";
+   document.getElementById("shade").style.display = "block";
    //======= END =======
 }
 //========= 返回好看的Tag =========
@@ -108,7 +115,7 @@ function getTag(id) {
    var tags="";
    for(var i=0;i<res[id].tag.length;i++)
    {
-      tags=tags+"<span style='line-height:200%;background:red;border-radius:2px;padding:0.1em 0.3em 0.1em 0.3em;'>"+res[id].tag[i]+"</span>&nbsp;";
+      tags=tags+"<span style='line-height:200%;background:red;border-radius:2px;padding:0.1em 0.3em 0.1em 0.3em;opacity:0.5;color:white;'>"+res[id].tag[i]+"</span>&nbsp;";
    }
    return tags;
 }

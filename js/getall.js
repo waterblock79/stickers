@@ -10,7 +10,6 @@ for(i=0;i<res.length;i++)
    document.write("<div class='card_about'><center>"+sub(res[i].name)+"</center></div>");
    document.write("</div></a>");
 }
-document.getElementById("collectnums").innerHTML=res.length;
 
 function sub(n)
 {

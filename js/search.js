@@ -45,7 +45,7 @@ function search()
    }
    if(result.length==0)
    {
-      document.getElementById("result").innerHTML += "<center style='color:rgb(0,122,204);'>没有找到任何表情:(</center>";
+      document.getElementById("result").innerHTML += "<center style='color:rgb(217,83,79)'>没有找到任何表情:(</center>";
    }
    //========== 搜索到的操作 =========
    function gotit(i)

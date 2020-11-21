@@ -7,7 +7,7 @@ res=JSON.parse(req.responseText);
 for(i=0;i<res.length;i++)
 {
    document.write("<a href='"+"bq.html?id="+i+"'><div class='card' style='background:url(\"resources/"+res[i].img+"\");background-repeat:no-repeat;background-size:100% 100%;'>");
-   document.write("<div class='card_about'><center>"+sub(res[i].name)+"</center></div>");
+   document.write("<div class='card_about' title='"+res[i].name+"'><center>"+sub(res[i].name)+"</center></div>");
    document.write("</div></a>");
 }
 
